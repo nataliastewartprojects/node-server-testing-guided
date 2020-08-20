@@ -7,15 +7,15 @@ const server = express();
 server.use(express.json());
 
 server.get("/", (req, res) => {
-  res.status(200).json({ api: "up" });
+  res.status(200).json({ api: "running..." });
 });
 
 server.get("/hobbits", (req, res) => {
   Hobbits.getAll()
-    .then(hobbits => {
+    .then((hobbits) => {
       res.status(200).json(hobbits);
     })
-    .catch(error => {
+    .catch((error) => {
       res.status(500).json(error);
     });
 });
